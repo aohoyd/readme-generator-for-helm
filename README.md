@@ -100,10 +100,10 @@ By default we use a format similar to Javadoc, using `@xxx` for tags followed by
 
 The following are the tags supported at this very moment:
 
-- For a parameter: `## @param fullKeyPath [modifier?] Description`.
+- For a parameter: `## @param (fullKeyPath) [modifier?] Description`.
 - For a section: `## @section Section Title"`.
-- To skip an object and all its children: `## @skip fullKeyPath Description?`.
-- To add a description for an intermediate object (i.e. not final in the YAML tree): `## @extra fullkeyPath Description`.
+- To skip an object and all its children: `## @skip (fullKeyPath) Description?`.
+- To add a description for an intermediate object (i.e. not final in the YAML tree): `## @extra (fullkeyPath) Description`.
 
 All the tags as well as the two initial `#` characters for the comments style can be configured in the [configuration file](#configuration-file).
 
@@ -118,6 +118,8 @@ Currently supported modifiers:
 - `[array]` Indicates that the value of the parameter must be set to `[]`.
 - `[object]` Indicates that the value of the parameter must be set to `{}`.
 - `[string]` Indicates that the value of the parameter must be set to `""`.
+- `[boolean]` Indicates that the value of the parameter must be set to `false`.
+- `[int]` Indicates that the value of the parameter must be set to `0`.
 - `[nullable]` Indicates that the parameter value can be set to `null`.
 - `[default: DEFAULT_VALUE]` Sets the default value to `DEFAULT_VALUE`.
 
@@ -131,7 +133,7 @@ Example:
 Values file
 
 ```yaml
-# @param noDefaultValue [number, nullable] Description
+# @param (noDefaultValue) [number, nullable] Description
 # noDefaultValue: 1
 ```
 
